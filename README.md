@@ -20,14 +20,7 @@ This project uses:
 
 ## Project build - Golang
 
-First thing you need to do is install go module:
-
-```console
-$ go mod init empatica-assignment
-$ go mod tidy
-```
-
-Then you need to generate the lambda funcions binaires, that will be zipped to store the source code on a S3 bucket by terraform:
+First thing you need to do is generate the lambda funcions binaires, that will be zipped to store the source code on a S3 bucket by terraform:
 
 ```console
 $ GOOS=linux GOARCH=amd64 CGO_ENALBED=0 go build -o ./target/lambdagetbin -ldflags '-w' ./handlers/getTasks/main.go
